@@ -248,7 +248,7 @@ bool Utils::killProcessByName(const QString &name)
 #elif defined Q_OS_IOS || defined(Q_OS_ANDROID)
     return false;
 #else
-    QProcess::execute(QString("pkill %1").arg(name));
+    return QProcess::execute(QString("pkill %1").arg(name)) == 0;
 #endif
 }
 
